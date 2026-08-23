@@ -14,6 +14,8 @@ public sealed class AppDbContext : DbContext
     {
         var shipment = modelBuilder.Entity<Shipment>();
         shipment.HasKey(x => x.Id);
+        shipment.Property(x => x.Id)
+    .ValueGeneratedNever();
         shipment.HasIndex(x => x.TrackingNumber).IsUnique();
         shipment.Property(x => x.TrackingNumber).HasMaxLength(40).IsRequired();
         shipment.Property(x => x.RecipientName).HasMaxLength(150).IsRequired();
@@ -28,9 +30,23 @@ public sealed class AppDbContext : DbContext
             .OnDelete(DeleteBehavior.Cascade);
 
         var history = modelBuilder.Entity<ShipmentStatusHistory>();
+
         history.HasKey(x => x.Id);
-        history.Property(x => x.OldStatus).HasConversion<string>().HasMaxLength(40);
-        history.Property(x => x.NewStatus).HasConversion<string>().HasMaxLength(40).IsRequired();
-        history.Property(x => x.ChangedBy).HasMaxLength(150).IsRequired();
+
+        history.Property(x => x.Id)
+            .ValueGeneratedNever();
+
+        history.Property(x => x.OldStatus)
+            .HasConversion<string>()
+            .HasMaxLength(40);
+
+        history.Property(x => x.NewStatus)
+            .HasConversion<string>()
+            .HasMaxLength(40)
+            .IsRequired();
+
+        history.Property(x => x.ChangedBy)
+            .HasMaxLength(150)
+            .IsRequired();
     }
 }
