@@ -1,9 +1,8 @@
-# JOURNAL
-
-> Bu dosyayı her çalışma oturumunun sonunda kendi cümlelerinle 2-4 satır güncelle. Ödev özellikle bunu istiyor; hazır günlük metnini körlemesine kullanma.
-
-## Oturum şablonu
-- Bugün ne yaptım:
-- Verdiğim teknik karar:
-- AI'ı nerede kullandım:
-- AI önerilerinden kabul etmediğim / değiştirdiğim şey ve nedeni:
+19.08.2026
+Kod yazmaya başlarken, daha önce karar verdiğim gibi Clean Arch. katmanlarını oluşturdum, ayırdım, bağımlılıkları ayarladım. Yapay zekadan application, domain katmanlarının altındaki dosyaları hazırlarken yardım aldım. Yapay zeka gönderi durumlarını controllerda tutma önerisi verdi, şimdilik Domain katmanında tutuyorum. Enum dosyalarını (gönderi durumlarını) isimlendirirken yapay zekadan yardım aldım. Yapay zeka geçersiz durum geçişleri için try catch kullanmamı önerdi ancak bunu da domain katmanında oluşturup tutmaya devam ettim. Geçmişi görebilmek için ShipmentStatusHistory yapısını ekledim, eklerken aldığım hatalar beni bir süre uğraştırdı. Hataları yapay zekayla çözdüm.
+20.08.2026
+Bugün Application katmanında gönderi oluşturma, listeleme, takip numarasıyla arama ve durum güncelleme işlemlerini yöneten servis yapısını oluşturdum. IShipmentRepository interface'ini oluşturdum. Gönderi ekleme, listeleme, takip numarasıyla bulma ve gerekli güncelleme işlemlerini bu soyutlama üzerinden tanımladım. Interface oluştururken aldığım hataları yapay zeka yardımıyla çözdüm. Bu sırada generic repository kullanımıyla ilgi öneri verdi ama şuanlık gerekli repository işlemlerini tanımladım. Milestone-1'i tamamladım.
+21.08.2026
+Bugün durum geçişleriyle ilgili çalıştım. Çok uzun süren bir bölümdü çünkü geçersiz durum geçişlerinde defalarca hata aldım. Yapay zekadan hata konusunda yardım aldım, kodlarımı yapay zekayla düzelttim. Duruma göre filtreleme ekledim kanıt dosyasına eklemek için ekran görüntüsü aldım. 
+22.08.2026
+Müşterinin takip numarası ile gönderisini görüntüleyebilmesini, durum geçmişinin gösterilmesini ve hata cevaplarının doğru HTTP kodlarıyla dönmesini kontrol ettim. Bugün milestone 1 ve 2dki tag oluşturma işlemini yapamadığımı fark ettim. Ama bitmesine çok az kaldığı için devam edip tamamen bitirdim. Bitirirken aldığım hataları düzeltirken yapay zekayı kullandım.
