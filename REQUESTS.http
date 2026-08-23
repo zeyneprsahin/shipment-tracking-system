@@ -1,0 +1,47 @@
+@host = http://localhost:5094
+
+### 1) Create shipment
+POST {{host}}/api/shipments
+Content-Type: application/json
+
+{
+  "recipientName": "Ali Yilmaz",
+  "address": "Aydin, Turkey",
+  "phoneNumber": "05550000000",
+  "packageInfo": "Small box",
+  "email": null,
+  "createdBy": "employee-1"
+}
+
+### Replace tracking number below after create
+@trackingNumber = SHP-REPLACE-ME
+
+### 2) Team lookup
+GET {{host}}/api/shipments/{{trackingNumber}}
+
+### 3) List
+GET {{host}}/api/shipments
+
+### 4) Filter
+GET {{host}}/api/shipments?status=Preparing
+
+### 5) Change status
+PUT {{host}}/api/shipments/{{trackingNumber}}/status
+Content-Type: application/json
+
+{
+  "newStatus": "Shipped",
+  "changedBy": "employee-1"
+}
+
+### 6) Invalid transition example -> should return 409 if current state does not allow Delivered
+PUT {{host}}/api/shipments/{{trackingNumber}}/status
+Content-Type: application/json
+
+{
+  "newStatus": "Delivered",
+  "changedBy": "employee-1"
+}
+
+### 7) Customer read-only tracking
+GET {{host}}/api/tracking/{{trackingNumber}}

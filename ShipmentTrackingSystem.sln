@@ -1,0 +1,48 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipmentTracking.Domain", "src\ShipmentTracking.Domain\ShipmentTracking.Domain.csproj", "{01010101-0101-0101-0101-010101010101}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipmentTracking.Application", "src\ShipmentTracking.Application\ShipmentTracking.Application.csproj", "{02020202-0202-0202-0202-020202020202}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipmentTracking.Infrastructure", "src\ShipmentTracking.Infrastructure\ShipmentTracking.Infrastructure.csproj", "{03030303-0303-0303-0303-030303030303}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipmentTracking.API", "src\ShipmentTracking.API\ShipmentTracking.API.csproj", "{04040404-0404-0404-0404-040404040404}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipmentTracking.Tests", "tests\ShipmentTracking.Tests\ShipmentTracking.Tests.csproj", "{05050505-0505-0505-0505-050505050505}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{01010101-0101-0101-0101-010101010101}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01010101-0101-0101-0101-010101010101}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01010101-0101-0101-0101-010101010101}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01010101-0101-0101-0101-010101010101}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02020202-0202-0202-0202-020202020202}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02020202-0202-0202-0202-020202020202}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02020202-0202-0202-0202-020202020202}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02020202-0202-0202-0202-020202020202}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03030303-0303-0303-0303-030303030303}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03030303-0303-0303-0303-030303030303}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03030303-0303-0303-0303-030303030303}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03030303-0303-0303-0303-030303030303}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04040404-0404-0404-0404-040404040404}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04040404-0404-0404-0404-040404040404}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04040404-0404-0404-0404-040404040404}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04040404-0404-0404-0404-040404040404}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05050505-0505-0505-0505-050505050505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05050505-0505-0505-0505-050505050505}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05050505-0505-0505-0505-050505050505}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05050505-0505-0505-0505-050505050505}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {986973FD-5F9F-45AD-A5D5-7C5AC2CE0417}
+	EndGlobalSection
+EndGlobal

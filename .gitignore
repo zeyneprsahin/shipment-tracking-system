@@ -1,0 +1,8 @@
+**/bin/
+**/obj/
+.vs/
+*.user
+*.suo
+shipment-tracking.db
+*.db-shm
+*.db-wal
