@@ -12,8 +12,11 @@ public sealed class CustomerTrackingController : ControllerBase
 
     public CustomerTrackingController(ShipmentService service) => _service = service;
 
-    // Customer side intentionally exposes only read-by-tracking-number.
     [HttpGet("{trackingNumber}")]
-    public async Task<ActionResult<ShipmentDto>> Track(string trackingNumber, CancellationToken cancellationToken)
-        => Ok(await _service.GetByTrackingNumberAsync(trackingNumber, cancellationToken));
+    public async Task<ActionResult<CustomerTrackingDto>> Track(
+    string trackingNumber,
+    CancellationToken cancellationToken)
+    => Ok(await _service.GetCustomerTrackingAsync(
+        trackingNumber,
+        cancellationToken));
 }

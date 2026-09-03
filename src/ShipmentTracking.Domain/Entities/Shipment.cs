@@ -73,7 +73,8 @@ public class Shipment
             [ShipmentStatus.ReturnRequested] = new[] { ShipmentStatus.Returning },
             [ShipmentStatus.Returning] = new[] { ShipmentStatus.Returned },
             [ShipmentStatus.Cancelled] = Array.Empty<ShipmentStatus>(),
-            [ShipmentStatus.Returned] = Array.Empty<ShipmentStatus>()
+            [ShipmentStatus.Returned] = Array.Empty<ShipmentStatus>(),
+             [ShipmentStatus.ReturnedToSender] = Array.Empty<ShipmentStatus>()
         };
 
     public void ChangeStatus(ShipmentStatus newStatus, string changedBy, DateTime changedAtUtc)

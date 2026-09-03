@@ -57,6 +57,28 @@ public sealed class ShipmentService
         return Map(shipment);
     }
 
+    public async Task<CustomerTrackingDto> GetCustomerTrackingAsync(
+    string trackingNumber,
+    CancellationToken cancellationToken = default)
+    {
+        if (string.IsNullOrWhiteSpace(trackingNumber))
+            throw new ValidationException("Tracking number is required.");
+
+        var shipment = await _repository.GetByTrackingNumberAsync(
+            trackingNumber.Trim(),
+            cancellationToken)
+            ?? throw new NotFoundException("Shipment was not found.");
+
+        var lastUpdatedAtUtc = shipment.StatusHistory
+            .OrderByDescending(x => x.ChangedAtUtc)
+            .Select(x => x.ChangedAtUtc)
+            .FirstOrDefault();
+
+        return new CustomerTrackingDto(
+            shipment.TrackingNumber,
+            shipment.Status,
+            lastUpdatedAtUtc);
+    }
     public async Task<ShipmentDto> ChangeStatusAsync(string trackingNumber, ChangeShipmentStatusRequest request, CancellationToken cancellationToken = default)
     {
         if (string.IsNullOrWhiteSpace(request.ChangedBy))

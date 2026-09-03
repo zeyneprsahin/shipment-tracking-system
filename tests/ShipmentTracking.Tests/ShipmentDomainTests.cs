@@ -87,4 +87,87 @@ public class ShipmentDomainTests
         shipment.ChangeStatus(ShipmentStatus.Returned, "employee-1", DateTime.UtcNow);
         Assert.Equal(ShipmentStatus.Returned, shipment.Status);
     }
+    [Fact]
+    public void Delivery_failed_shipment_can_be_returned_to_sender()
+    {
+        var shipment = CreateShipment();
+
+        shipment.ChangeStatus(
+            ShipmentStatus.Shipped,
+            "employee-1",
+            DateTime.UtcNow);
+
+        shipment.ChangeStatus(
+            ShipmentStatus.InTransit,
+            "employee-1",
+            DateTime.UtcNow);
+
+        shipment.ChangeStatus(
+            ShipmentStatus.OutForDelivery,
+            "employee-1",
+            DateTime.UtcNow);
+
+        shipment.ChangeStatus(
+            ShipmentStatus.DeliveryFailed,
+            "employee-1",
+            DateTime.UtcNow);
+
+        shipment.ChangeStatus(
+            ShipmentStatus.ReturningToSender,
+            "employee-1",
+            DateTime.UtcNow);
+
+        shipment.ChangeStatus(
+            ShipmentStatus.ReturnedToSender,
+            "employee-1",
+            DateTime.UtcNow);
+
+        Assert.Equal(
+            ShipmentStatus.ReturnedToSender,
+            shipment.Status);
+    }
+
+    //kötü geçiþ test
+
+    [Fact]
+    public void Returned_to_sender_shipment_cannot_go_out_for_delivery_again()
+    {
+        var shipment = CreateShipment();
+
+        shipment.ChangeStatus(
+            ShipmentStatus.Shipped,
+            "employee-1",
+            DateTime.UtcNow);
+
+        shipment.ChangeStatus(
+            ShipmentStatus.InTransit,
+            "employee-1",
+            DateTime.UtcNow);
+
+        shipment.ChangeStatus(
+            ShipmentStatus.OutForDelivery,
+            "employee-1",
+            DateTime.UtcNow);
+
+        shipment.ChangeStatus(
+            ShipmentStatus.DeliveryFailed,
+            "employee-1",
+            DateTime.UtcNow);
+
+        shipment.ChangeStatus(
+            ShipmentStatus.ReturningToSender,
+            "employee-1",
+            DateTime.UtcNow);
+
+        shipment.ChangeStatus(
+            ShipmentStatus.ReturnedToSender,
+            "employee-1",
+            DateTime.UtcNow);
+
+        Assert.Throws<DomainRuleException>(() =>
+            shipment.ChangeStatus(
+                ShipmentStatus.OutForDelivery,
+                "employee-1",
+                DateTime.UtcNow));
+    }
 }
