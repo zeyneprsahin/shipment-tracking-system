@@ -52,9 +52,24 @@ public class Shipment
             [ShipmentStatus.Preparing] = new[] { ShipmentStatus.Shipped, ShipmentStatus.Cancelled },
             [ShipmentStatus.Shipped] = new[] { ShipmentStatus.InTransit },
             [ShipmentStatus.InTransit] = new[] { ShipmentStatus.OutForDelivery },
-            [ShipmentStatus.OutForDelivery] = new[] { ShipmentStatus.Delivered, ShipmentStatus.DeliveryFailed },
-            [ShipmentStatus.DeliveryFailed] = new[] { ShipmentStatus.OutForDelivery },
-            [ShipmentStatus.Delivered] = new[] { ShipmentStatus.ReturnRequested },
+            [ShipmentStatus.OutForDelivery] =
+    new[] { ShipmentStatus.Delivered, ShipmentStatus.DeliveryFailed },
+
+            [ShipmentStatus.DeliveryFailed] =
+    new[]
+    {
+        ShipmentStatus.OutForDelivery,
+        ShipmentStatus.ReturningToSender
+    },
+
+            [ShipmentStatus.ReturningToSender] =
+    new[] { ShipmentStatus.ReturnedToSender },
+
+            [ShipmentStatus.ReturnedToSender] =
+    Array.Empty<ShipmentStatus>(),
+
+            [ShipmentStatus.Delivered] =
+    new[] { ShipmentStatus.ReturnRequested },
             [ShipmentStatus.ReturnRequested] = new[] { ShipmentStatus.Returning },
             [ShipmentStatus.Returning] = new[] { ShipmentStatus.Returned },
             [ShipmentStatus.Cancelled] = Array.Empty<ShipmentStatus>(),

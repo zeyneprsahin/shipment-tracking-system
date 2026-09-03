@@ -11,5 +11,9 @@ public enum ShipmentStatus
     Cancelled = 7,
     ReturnRequested = 8,
     Returning = 9,
-    Returned = 10
+    Returned = 10,
+
+    ReturningToSender = 11,
+    ReturnedToSender = 12
+        //"paketin gönderene dönmesi"ni süreç olarak düþünüyorum.
 }
