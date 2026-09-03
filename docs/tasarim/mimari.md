@@ -22,7 +22,8 @@ Gönderi durumlara kurallara bağlı olduğu için karışıklığa açık bir s
 
 İlk tasarımda şu geçişleri kullanmayı planlıyorum:
 
-* Preparing → Shipped      * Shipped → InTransit    * InTransit → OutForDelivery  * OutForDelivery → Delivered    * OutForDelivery → DeliveryFailed     * DeliveryFailed → OutForDelivery    * Preparing → Cancelled           * Delivered → ReturnRequested      * ReturnRequested → Returning  * Returning → Returned
+* Preparing → Shipped      * Shipped → InTransit    * InTransit → OutForDelivery  * OutForDelivery → Delivered    * OutForDelivery → DeliveryFailed     * DeliveryFailed → OutForDelivery    * Preparing → Cancelled           * Delivered → ReturnRequested      * ReturnRequested → Returning  * Returning → Returned *DeliveryFailed → ReturningToSender    *ReturningToSender → ReturnedToSender
+* *DeliveryFailed → ReturningToSender → ReturnedToSender
 
 Bu geçişlerin dışında bir durum değişikliği yapılmaya çalışılırsa sistem bunu reddedecek.
 
